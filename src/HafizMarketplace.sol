@@ -81,7 +81,8 @@ contract HafizMarketplace {
         offers[totalOffers] = offer_;
     }
 
-    function acceptOffer(Offer memory offer_) external {
+    function acceptOffer(uint256 offerId) external {
+        Offer storage offer_ = offers[offerId];
         // tutor can accept the offer
         if (offer_.tutor != msg.sender) {
             revert();
@@ -93,10 +94,13 @@ contract HafizMarketplace {
         if(offer_.offerTime + offer_.gracePeriod < block.timestamp) {
             revert();
         }
+
         offer_.status = OfferState.Accepted;
     }
 
-    function cancelOffer(Offer memory offer_) external {
+    function cancelOffer(uint256 offerId ) external {
+                Offer storage offer_ = offers[offerId];
+
         if (offer_.tutor != msg.sender || offer_.student != msg.sender) {
             revert();
         }
@@ -118,7 +122,8 @@ contract HafizMarketplace {
         payable(offer_.student).transfer(offer_.price);
     }
 
-    function rejectOffer(Offer memory offer_) external {
+    function rejectOffer(uint256 offerId ) external {
+                Offer storage offer_ = offers[offerId];
         if (offer_.tutor != msg.sender) {
             revert();
         }
@@ -130,7 +135,8 @@ contract HafizMarketplace {
     }
 
     // tutor fullfill the offer and get paid. Fee percentage is deducted and transfered to DAO
-    function fullfillOffer(Offer memory offer_) external {
+    function fullfillOffer(uint256 offerId ) external {
+                Offer storage offer_ = offers[offerId];
         if (offer_.tutor != msg.sender) {
             revert();
         }
