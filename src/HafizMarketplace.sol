@@ -17,12 +17,21 @@ import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
  */
 contract HafizMarketplace {
     address public daoContract;
-     IERC721 public nftContract;
+    IERC721 public nftContract;
     uint256 public feePercentage;
     uint256 public totalOffers;
+
+    enum OfferState {
+        Pending,
+        Accepted,
+        Rejected,
+        Canceled,
+        Fulfiled
+    }
     // offer id to offer details
     mapping(uint256 => Offer) public offers;
-       enum Recitations {
+
+    enum Recitations {
         Hafs_3an_Aasem,
         Warash_3an_Nafi3,
         Qalun_3an_Nafi3,
@@ -34,30 +43,108 @@ contract HafizMarketplace {
         Albizi_3an_Abn_Katheer,
         Alsuwsi_3an_Abi_Amr
     }
-    struct Offer{
+    struct Offer {
         address tutor;
         address student;
         uint256 tokenId;
         uint256 price;
-        uint256 time;
+        uint256 gracePeriod;
+        uint256 offerTime;
         Recitations qiraa;
-        bool accepted;
+        OfferState status;
         string data;
     }
 
-
-    function submitOffer(offers memory offer_) {
-        
-    }
-    function acceptOffer(offers memory offer_) {
-        
-    }
-    function cancelOffer(offers memory offer_) {
-        
-    }
-    function rejectOffer(offers memory offer_) {
-        
+    constructor(
+        address _daoContract,
+        address _nftContract,
+        uint256 _feePercentage
+    ) {
+        daoContract = _daoContract;
+        nftContract = IERC721(_nftContract);
+        feePercentage = _feePercentage;
     }
 
+    // offer per session
+    function submitOffer(Offer memory offer_) external payable {
+        /// TODO:: apply these checks
+        // create offer id based on the offer details
+        // check if the tutor is eligible to teach the student based on the tutor's NFT certificate details.
 
+        /// TODO : add more checks
+        // check if the student has sent money to pay the tutor
+
+        if (offer_.price == msg.value) {
+            revert();
+        }
+        ++totalOffers;
+        offers[totalOffers] = offer_;
+    }
+
+    function acceptOffer(Offer memory offer_) external {
+        // tutor can accept the offer
+        if (offer_.tutor != msg.sender) {
+            revert();
+        }
+        if (offer_.status != OfferState.Pending) {
+            revert();
+        }
+        // expire the offer if the tutor does not accept it within the grace period
+        if(offer_.offerTime + offer_.gracePeriod < block.timestamp) {
+            revert();
+        }
+        offer_.status = OfferState.Accepted;
+    }
+
+    function cancelOffer(Offer memory offer_) external {
+        if (offer_.tutor != msg.sender || offer_.student != msg.sender) {
+            revert();
+        }
+
+        if (offer_.status == OfferState.Pending) {
+            revert();
+        }
+        // Student can cancel the offer only within the grace period
+        if (
+            offer_.status == OfferState.Accepted &&
+            offer_.offerTime + offer_.gracePeriod < block.timestamp &&
+            offer_.student == msg.sender
+        ) {
+            revert();
+        }
+
+        offer_.status = OfferState.Canceled;
+        // refund the student
+        payable(offer_.student).transfer(offer_.price);
+    }
+
+    function rejectOffer(Offer memory offer_) external {
+        if (offer_.tutor != msg.sender) {
+            revert();
+        }
+        if (offer_.status != OfferState.Pending) {
+            revert();
+        }
+        offer_.status = OfferState.Rejected;
+        payable(offer_.student).transfer(offer_.price);
+    }
+
+    // tutor fullfill the offer and get paid. Fee percentage is deducted and transfered to DAO
+    function fullfillOffer(Offer memory offer_) external {
+        if (offer_.tutor != msg.sender) {
+            revert();
+        }
+        if (offer_.status != OfferState.Accepted) {
+            revert();
+        }
+        if (offer_.offerTime + offer_.gracePeriod > block.timestamp) {
+            revert();
+        }
+        offer_.status = OfferState.Fulfiled;
+        uint256 fees = (offer_.price * feePercentage) / 100;
+        // transfer the money to the tutor
+        payable(offer_.tutor).transfer(offer_.price - fees);
+        // transfer the fee to the DAO
+        payable(daoContract).transfer(fees);
+    }
 }
