@@ -5,36 +5,13 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-// nft based IJaza certificate. non transferable , minitters are nft holders. it should keep track of parent nft for every minted child nft
+import "./IEjaza.sol";
+// nft based Ejaza certificate. non transferable , minitters are nft holders. it should keep track of parent nft for every minted child nft
 
-contract HafizEjaza is Ownable, ERC721 {
+contract HafizEjaza is IEjaza, Ownable, ERC721 {
     address daoContract;
     uint256 public counter;
-    // we need to know the type of recitations
-    /**
-   حفص عن عاصم.
-  ورش عن نافع.
-  قالون عن نافع.
-  الدوري عن أبي عمرو.
-  أبي الحارث عن الكسائي.
-  الدوري عن الكسائي.
-  شعبة عن عاصم.
-  قنبل عن ابن كثير.
-  البزي عن ابن كثير.
-  السوسي عن أبي عمرو.
-     */
-    enum Recitations {
-        Hafs_3an_Aasem,
-        Warash_3an_Nafi3,
-        Qalun_3an_Nafi3,
-        Aldawriu_3an_Abi_Amr,
-        Abi_alharith_3an_Alkisaaiy,
-        Aldawri_3an_Alkisaaiy,
-        Shoo3ba_3an_Aasem,
-        Qunbul_3an_Abn_Katheer,
-        Albizi_3an_Abn_Katheer,
-        Alsuwsi_3an_Abi_Amr
-    }
+  
     struct Ejaza {
         Recitations qiraa;
         // The timestamp from the block when this is created.
@@ -45,7 +22,7 @@ contract HafizEjaza is Ownable, ERC721 {
     }
 
     // token id to Ejaza details
-    mapping(uint256 => Ejaza) public isssuedIjaza;
+    mapping(uint256 => Ejaza) public isssuedEjaza;
     // link the minted ejaza to its parent
     // tokenid to tokenid
     mapping(uint256 => uint256) public ejazaLink;
@@ -64,7 +41,7 @@ contract HafizEjaza is Ownable, ERC721 {
     ) external onlyOwner {
         uint256 length = _legacyEjaza.length;
         uint256 index;
-        if(_tos.length != length) {
+        if (_tos.length != length) {
             revert();
         }
         for (; index < length; ) {
@@ -77,14 +54,19 @@ contract HafizEjaza is Ownable, ERC721 {
             unchecked {
                 ++counter;
             }
-            isssuedIjaza[counter] = _legacyEjaza[index];
+            isssuedEjaza[counter] = _legacyEjaza[index];
             _safeMint(_tos[index], counter, "");
             ejazaLink[counter] = _legacyEjaza[index].parentCertId;
             unchecked {
                 ++index;
             }
-                    emit EjazaIssued(_tos[index],_msgSender(), _legacyEjaza[index].parentCertId, counter, _legacyEjaza[index].qiraa);
-
+            emit EjazaIssued(
+                _tos[index],
+                _msgSender(),
+                _legacyEjaza[index].parentCertId,
+                counter,
+                _legacyEjaza[index].qiraa
+            );
         }
     }
 
@@ -94,11 +76,11 @@ contract HafizEjaza is Ownable, ERC721 {
         Recitations qiraa_,
         address from,
         address to
-    ) external onlyDAO {
+    ) external onlyDAO returns (uint256) {
         if (ownerOf(parentCertId_) != from) {
             revert();
         }
-        if (isssuedIjaza[parentCertId_].qiraa != qiraa_) {
+        if (isssuedEjaza[parentCertId_].qiraa != qiraa_) {
             revert();
         }
 
@@ -107,29 +89,41 @@ contract HafizEjaza is Ownable, ERC721 {
         }
         _safeMint(to, counter, "");
         ejazaLink[counter] = parentCertId_;
-        isssuedIjaza[counter] = Ejaza({
+        isssuedEjaza[counter] = Ejaza({
             qiraa: qiraa_,
             issueTime: block.timestamp,
             parentCertId: parentCertId_,
             recodingURl: recodingURl_
         });
         emit EjazaIssued(to, from, parentCertId_, counter, qiraa_);
+        return counter;
+    }
+
+    /// @dev Returns recitation of the ejaza.
+    /// @param _ejazaId: Id of the ejaza.
+    /// @return Recitation of the ejaza.
+    function getRecitation(uint256 _ejazaId)
+        external
+        view
+        returns (Recitations)
+    {
+        return isssuedEjaza[_ejazaId].qiraa;
     }
 
     function _safeTransfer(
-        address  ,
-        address ,
-        uint256 ,
-        bytes memory 
-    ) internal override {
+        address,
+        address,
+        uint256,
+        bytes memory
+    ) internal pure override {
         revert();
     }
 
     function _transfer(
-        address ,
-        address ,
-        uint256 
-    ) internal override {
+        address,
+        address,
+        uint256
+    ) internal pure override {
         revert();
     }
 
