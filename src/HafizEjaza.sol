@@ -34,7 +34,13 @@ contract HafizEjaza is IEjaza, Ownable, ERC721 {
     }
 
     constructor() ERC721("Hafiz Ejaza Token", "HET") {}
-
+    // set dao address , only owner can call this
+    function setDAO(address _daoContract) external onlyOwner {
+        if (_daoContract == address(0)) {
+            revert();
+        }
+        daoContract = _daoContract;
+    }
     function issueForLegacyEjaza(
         address[] memory _tos,
         Ejaza[] memory _legacyEjaza
