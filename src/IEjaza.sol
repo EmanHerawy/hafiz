@@ -27,4 +27,26 @@ interface IEjaza {
         Albizi_3an_Abn_Katheer,
         Alsuwsi_3an_Abi_Amr
     }
+        struct Ejaza {
+        Recitations qiraa;
+        // The timestamp from the block when this is created.
+        uint256 issueTime;
+        uint256 parentCertId;
+        // recording cid
+        string recodingURl;
+    }
+
+    // define error messages
+    error NotAuthorized();
+    error ZeroAddress();
+    // error if the from is not the owner of the parent cert
+    error NotParentCertOwner();
+    // error if issuing diffrent recitation
+    error NotSameRecitation();
+    //  if (_tos.length != length)
+    error NotSameLength();
+    /** if  _legacyEjaza[index].issueTime == 0 ||
+                _legacyEjaza[index].issueTime >= block.timestamp */
+    error NotValidIssueTime();
+
 }

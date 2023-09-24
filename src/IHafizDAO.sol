@@ -79,7 +79,7 @@ interface IHafizDAO  is IEjaza{
         uint256 amount,
         address executedBy
     );
-
+        function joinDAO() external;
     // only DAO members can propose a new ejaza
     function propose(
        bytes memory pieceCid,
@@ -103,4 +103,22 @@ interface IHafizDAO  is IEjaza{
 
     function getActiveProviders(bytes32 proposalId) external view returns (uint64[] memory);
      function getDataProof(bytes32 proposalId) external view  returns (string memory) ;
+     // errors go here
+         error NotMember();
+        error NotValidCID();
+        // cidToProposalId[cid] != bytes32(0))
+        error CidAlreadyUsed();
+         error NotValidProposal();
+        error NotValidDeal();
+        error NotValidProposalState();
+         error ExpiredProposal();
+    //proposal.proposedAt + gracePeriod > block.timestamp
+        error NotReadyForExecution();
+        error ZeroDealId();
+        error NotValidDealIds();
+        error EmptyDealIds();
+        error NotValidDealData();
+        error AlreadyRefunded();
+        error NotValidPeiceSize();
+
 }

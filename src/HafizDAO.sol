@@ -47,6 +47,16 @@ contract HafizDAO is IHafizDAO {
             emit AdminAdded(_admins[i]);
         }
     }
+
+        function joinDAO() public {
+        if(membershipNFT.balanceOf(msg.sender) ==0){
+            // un authorized 
+            revert NotAuthorized();
+        }
+       
+        members[msg.sender] = true;
+    
+    }
  function propose(
         bytes memory pieceCid,
         bytes memory cid,
@@ -56,21 +66,21 @@ contract HafizDAO is IHafizDAO {
         Recitations rewaya
     ) external returns (bytes32 proposalId){
         if(!members[msg.sender]){
-            revert();
+            revert NotMember();
         }
         if(to == address(0)){
-            revert();
+            revert ZeroAddress();
         }
         if(cid.length == 0){
-            revert();
+            revert NotValidCID(); 
         }
          // isuer must hold same recitation
         if(membershipNFT.getRecitation(parentCertId) != rewaya){
-            revert();
+            revert NotSameRecitation();
         }
         // check if the pieceCid is already used in another proposal
         if(cidToProposalId[cid] != bytes32(0)){
-            revert();
+            revert CidAlreadyUsed();
         }
         proposalId = keccak256(abi.encodePacked(cid, to, rewaya,size, block.timestamp));
         cidToProposalId[cid]= proposalId;
@@ -82,13 +92,13 @@ contract HafizDAO is IHafizDAO {
     // flag a proposal if it is not valid. Only DAO members can flag a proposal within the grace period
     function flagProposal(bytes32 proposalId) external{
         if(!members[msg.sender]){
-            revert();
+            revert NotMember();
         }
         if(proposals[proposalId].status != ProposalState.Proposed){
-            revert();
+            revert NotValidProposalState();
         }
         if(proposals[proposalId].proposedAt + gracePeriod < block.timestamp){
-            revert();
+            revert ExpiredProposal();
             }
             emit ProposalFlagged(proposalId, msg.sender);
         proposals[proposalId].status = ProposalState.Flagged;
@@ -97,26 +107,26 @@ contract HafizDAO is IHafizDAO {
     function executeProposal(bytes32 proposalId, uint64[] memory dealIds ) external{
         EjazaProposal storage proposal = proposals[proposalId];
         if(proposal.status != ProposalState.Proposed){
-            revert();
+            revert NotValidProposalState();
         }
         if(proposal.proposedAt + gracePeriod > block.timestamp){
-            revert();
+            revert NotReadyForExecution();
         }
         if(dealIds.length == 0){
-            revert();
+            revert EmptyDealIds();
         }
-        if(proposal.dealIds.length > 0){
-            revert();
-        }
+      
+        // set proposal.dealIds to dealIds
+        proposal.dealIds = dealIds;
         proposal.status = ProposalState.Executed;
-        /**   uint256 parentCertId_,
-        string memory recodingURl_,
-        Recitations qiraa_,
-        address from,
-        address to */
+ 
         uint256 ejazaId = membershipNFT.issueEjaza(proposal.parentCertId,
        string( proposal.pieceCid), proposal.recitation, proposal.proposedBy, proposal.to);
         proposal.dealIds = dealIds;
+        // refund member submitted proposal
+        for (uint256 index = 0; index < dealIds.length; index++) {
+            refund(dealIds[index]);
+        }
         emit ProposalExecuted(proposalId, proposal.cid, msg.sender, ejazaId, proposal.recitation, dealIds);
     }
 
@@ -255,23 +265,23 @@ contract HafizDAO is IHafizDAO {
 // dao member can get refunded if for any dao deal 
     function refund(uint64 dealId) public {
         if(!members[msg.sender]){
-            revert();
+            revert NotMember();
         }
         if (dealId == 0) {
-            revert();
+            revert ZeroDealId();
         }
         MarketTypes.GetDealDataCommitmentReturn memory commitmentRet = MarketAPI
             .getDealDataCommitment(dealId);
 
        if (dealIdToProvider[dealId] != 0) {
-            revert();
+            revert AlreadyRefunded();
         }
               //  validate data
         if (keccak256(commitmentRet.data) != keccak256(proposals[dealIdToProposalId[dealId]].pieceCid) ) {
-            revert();
+            revert NotValidDealData();
         }
         if (commitmentRet.size != proposals[dealIdToProposalId[dealId]].pieceSize ) {
-            revert();
+            revert NotValidPeiceSize();
         }
           // get dealer (bounty hunter client)
         uint64 clientRet = MarketAPI.getDealClient(dealId);

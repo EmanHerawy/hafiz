@@ -12,14 +12,7 @@ contract HafizEjaza is IEjaza, Ownable, ERC721 {
     address daoContract;
     uint256 public counter;
   
-    struct Ejaza {
-        Recitations qiraa;
-        // The timestamp from the block when this is created.
-        uint256 issueTime;
-        uint256 parentCertId;
-        // recording cid
-        string recodingURl;
-    }
+
 
     // token id to Ejaza details
     mapping(uint256 => Ejaza) public isssuedEjaza;
@@ -28,7 +21,7 @@ contract HafizEjaza is IEjaza, Ownable, ERC721 {
     mapping(uint256 => uint256) public ejazaLink;
     modifier onlyDAO() {
         if (_msgSender() != daoContract) {
-            revert();
+            revert NotAuthorized();
         }
         _;
     }
@@ -48,14 +41,15 @@ contract HafizEjaza is IEjaza, Ownable, ERC721 {
         uint256 length = _legacyEjaza.length;
         uint256 index;
         if (_tos.length != length) {
-            revert();
+            revert NotSameLength();
         }
-        for (; index < length; ) {
+        for (; index < length; ++index ) {
             if (
-                _legacyEjaza[index].issueTime == 0 ||
-                _legacyEjaza[index].issueTime >= block.timestamp
+                 _legacyEjaza[index].issueTime == 0 
+                //   ||
+                //  _legacyEjaza[index].issueTime >= block.timestamp
             ) {
-                revert();
+                revert NotValidIssueTime();
             }
             unchecked {
                 ++counter;
@@ -63,9 +57,7 @@ contract HafizEjaza is IEjaza, Ownable, ERC721 {
             isssuedEjaza[counter] = _legacyEjaza[index];
             _safeMint(_tos[index], counter, "");
             ejazaLink[counter] = _legacyEjaza[index].parentCertId;
-            unchecked {
-                ++index;
-            }
+        
             emit EjazaIssued(
                 _tos[index],
                 _msgSender(),
@@ -84,10 +76,10 @@ contract HafizEjaza is IEjaza, Ownable, ERC721 {
         address to
     ) external onlyDAO returns (uint256) {
         if (ownerOf(parentCertId_) != from) {
-            revert();
+             revert NotParentCertOwner();
         }
         if (isssuedEjaza[parentCertId_].qiraa != qiraa_) {
-            revert();
+            revert NotSameRecitation();
         }
 
         unchecked {
