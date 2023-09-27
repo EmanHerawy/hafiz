@@ -1,0 +1,36 @@
+[
+  {
+    "name": "Ali Ali",
+    "img": "Ejaza02.png",
+    "rewaya": "Hafs",
+    "hourRate":5,
+    "issueTime": "22/12/2010",
+    "issuedIjazah": 20,
+    "issuedBy":"Shikh Hassan"
+
+  
+  },
+  {
+    "name": "Eman Moahmed",
+    "img": "Ejaza03.png",
+    "rewaya": "Warsh",
+    "hourRate":5,
+    "issueTime": "22/12/2010",
+    "issuedIjazah": 10,
+    "issuedBy":"Shikh Khalid"
+
+  
+  },
+  {
+    "name": "Somaiah Amin",
+    "img": "Ejaza01.jpg",
+    "rewaya": "Hafs",
+    "hourRate":2,
+    "issueTime": "22/12/2009",
+    "issuedIjazah": 0,
+    "issuedBy":"Shikha Nisma"
+
+  
+  }
+  
+]
