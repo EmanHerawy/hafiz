@@ -1,5 +1,7 @@
 "use client";
 import MenuIcon from "@mui/icons-material/Menu";
+import Button from "@mui/material/Button";
+
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -96,8 +98,29 @@ const ResponsiveAppBar = () => {
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
-          <Box sx={{   display: { xs: "none", md: "flex" } }}> <JoinDAO /></Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}> <SubmitDAOProposal /></Box>
+          {/* <Box sx={{   display: { xs: "none", md: "flex" } }}>  <NextLink href="/dao" passHref>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            >
+             Marketplace
+            </Typography></Box> */}
+          <Box sx={{  display: { xs: "none", md: "flex" } }}>
+            
+            <NextLink href="/dao" passHref>
+           <Button>DAO</Button>
+            
+          </NextLink>
+          </Box>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            
+            <NextLink href="/marketplace" passHref>
+           <Button>Marketplace</Button>
+            
+          </NextLink>
+          </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             {isConnected &&  <NetworkSelector />}
             <ConnectWallet />

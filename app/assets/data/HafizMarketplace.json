@@ -1,0 +1,448 @@
+{
+  "address": "0xf6545Ed8a74afefb7A06B75AaabfC6BC39b77292",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_daoContract",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_nftContract",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_feePercentage",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "offerId",
+          "type": "uint256"
+        }
+      ],
+      "name": "acceptOffer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "offerId",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancelOffer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "daoContract",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "feePercentage",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "offerId",
+          "type": "uint256"
+        }
+      ],
+      "name": "fullfillOffer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nftContract",
+      "outputs": [
+        {
+          "internalType": "contract IERC721",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "offers",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "tutor",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "student",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "gracePeriod",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "offerTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "enum HafizMarketplace.Recitations",
+          "name": "qiraa",
+          "type": "uint8"
+        },
+        {
+          "internalType": "enum HafizMarketplace.OfferState",
+          "name": "status",
+          "type": "uint8"
+        },
+        {
+          "internalType": "string",
+          "name": "data",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "offerId",
+          "type": "uint256"
+        }
+      ],
+      "name": "rejectOffer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "tutor",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "student",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "gracePeriod",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "offerTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "enum HafizMarketplace.Recitations",
+              "name": "qiraa",
+              "type": "uint8"
+            },
+            {
+              "internalType": "enum HafizMarketplace.OfferState",
+              "name": "status",
+              "type": "uint8"
+            },
+            {
+              "internalType": "string",
+              "name": "data",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct HafizMarketplace.Offer",
+          "name": "offer_",
+          "type": "tuple"
+        }
+      ],
+      "name": "submitOffer",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalOffers",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x83594bf38f0d915e1d70bb908a863c1ad841cb1b85fe9eda583a13bb495b749c",
+  "receipt": {
+    "to": null,
+    "from": "0x8906EA0bc4b4e62314417eCdcbe45757112720E8",
+    "contractAddress": "0xf6545Ed8a74afefb7A06B75AaabfC6BC39b77292",
+    "transactionIndex": 4,
+    "gasUsed": "57925981",
+    "logsBloom": "0xeff6e5ddbbef57ffafdbf6fe7fc6ffe3fedfebae1eddc6cbfff9f99e459bbfff1fa39377eb6bc7e2fcfc7f71bfd7d5ebd9b6fc5bdf7effff5ba97e1ff3777df9ffffffebfe3f7dfed6c99fdfff3eebefbfffcbefdffe7fdbae8ffff6bfff6dffef6e5b90ef3deddd55fff3b7fe7c3ae73ddffbfef93affff7afff77fdef7fdfddff72eadcdfd8fffeffd976e7fdbdfdffdeaffbfb7f79e9dbfeff7f3bbfbf7f3bf7cbf377ff3dfff7fbf57feffcdff86bc5a72ef8fffdd240aff7efd6f3fefdffff57df7e7c75cff7ff457cfff7efb8ffb77fdfdf7dbe6ffffaf2defffffebffffddef7f7fbbfbf53db6dfbf8bf5b515f8e7e6b3d7ffafff97acfd9dbfff7fff",
+    "blockHash": "0xb546a3594d8e3d3ceeef7ad72fb770a40839154b64a7160fc6d99a0e2d9f5e0d",
+    "transactionHash": "0x83594bf38f0d915e1d70bb908a863c1ad841cb1b85fe9eda583a13bb495b749c",
+    "logs": [],
+    "blockNumber": 949775,
+    "cumulativeGasUsed": "0",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xd9f311186176cF51255E4591fBfA078a6F367C0E",
+    "0x9aaD4719E6466835cb5B6c474450B20482DA672e",
+    0
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "d97d66bac201c1e27bfdab49244036be",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_daoContract\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_nftContract\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_feePercentage\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"offerId\",\"type\":\"uint256\"}],\"name\":\"acceptOffer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"offerId\",\"type\":\"uint256\"}],\"name\":\"cancelOffer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"daoContract\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"feePercentage\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"offerId\",\"type\":\"uint256\"}],\"name\":\"fullfillOffer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nftContract\",\"outputs\":[{\"internalType\":\"contract IERC721\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"offers\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"tutor\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"student\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"gracePeriod\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"offerTime\",\"type\":\"uint256\"},{\"internalType\":\"enum HafizMarketplace.Recitations\",\"name\":\"qiraa\",\"type\":\"uint8\"},{\"internalType\":\"enum HafizMarketplace.OfferState\",\"name\":\"status\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"data\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"offerId\",\"type\":\"uint256\"}],\"name\":\"rejectOffer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"tutor\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"student\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"gracePeriod\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"offerTime\",\"type\":\"uint256\"},{\"internalType\":\"enum HafizMarketplace.Recitations\",\"name\":\"qiraa\",\"type\":\"uint8\"},{\"internalType\":\"enum HafizMarketplace.OfferState\",\"name\":\"status\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"data\",\"type\":\"string\"}],\"internalType\":\"struct HafizMarketplace.Offer\",\"name\":\"offer_\",\"type\":\"tuple\"}],\"name\":\"submitOffer\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalOffers\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"title\":\"HafizMarketplace HafizMarketplace - a contract for user to hir certified tutors \\\" Shikh\\\". to teach them quran Fees: 3% fees are collected from the tutor for each transaction and dipoisted to the DAO contract to be used  for paying for perserving/ retreiving the recordings of the tutors associated with their NFTs certificates. students- tutor matching: \\\" off-chain\\\" student can post a request to hire a tutor and any tutor can apply ad negotiate the price with the student. if the student accepts the offer,  the studnet send on-chain offer to the tutor and the tutor can accept or reject the offer. the student can search for a tutor by his/her NFT certificate number and then send a request to the tutor to teach him/her. The tutor can accept or reject the request. offer \\\" on-chain\\\": the tutor can offer a price for his/her service and the student can accept it or offer a new price. the contract will check to make sure the tutor is eligible to teach the student based on the tutor's NFT certificate details. payment: the student can pay the tutor through time-based escrow contract. the tutor can withdraw the payment after the student confirms the tutor has taught him/her.\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/HafizMarketplace.sol\":\"HafizMarketplace\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"details\":{\"constantOptimizer\":true,\"cse\":true,\"deduplicate\":true,\"inliner\":true,\"jumpdestRemover\":true,\"orderLiterals\":true,\"peephole\":true,\"yul\":false},\"runs\":1000},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.9.0) (token/ERC721/IERC721.sol)\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"../../utils/introspection/IERC165.sol\\\";\\n\\n/**\\n * @dev Required interface of an ERC721 compliant contract.\\n */\\ninterface IERC721 is IERC165 {\\n    /**\\n     * @dev Emitted when `tokenId` token is transferred from `from` to `to`.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 indexed tokenId);\\n\\n    /**\\n     * @dev Emitted when `owner` enables `approved` to manage the `tokenId` token.\\n     */\\n    event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId);\\n\\n    /**\\n     * @dev Emitted when `owner` enables or disables (`approved`) `operator` to manage all of its assets.\\n     */\\n    event ApprovalForAll(address indexed owner, address indexed operator, bool approved);\\n\\n    /**\\n     * @dev Returns the number of tokens in ``owner``'s account.\\n     */\\n    function balanceOf(address owner) external view returns (uint256 balance);\\n\\n    /**\\n     * @dev Returns the owner of the `tokenId` token.\\n     *\\n     * Requirements:\\n     *\\n     * - `tokenId` must exist.\\n     */\\n    function ownerOf(uint256 tokenId) external view returns (address owner);\\n\\n    /**\\n     * @dev Safely transfers `tokenId` token from `from` to `to`.\\n     *\\n     * Requirements:\\n     *\\n     * - `from` cannot be the zero address.\\n     * - `to` cannot be the zero address.\\n     * - `tokenId` token must exist and be owned by `from`.\\n     * - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.\\n     * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function safeTransferFrom(address from, address to, uint256 tokenId, bytes calldata data) external;\\n\\n    /**\\n     * @dev Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients\\n     * are aware of the ERC721 protocol to prevent tokens from being forever locked.\\n     *\\n     * Requirements:\\n     *\\n     * - `from` cannot be the zero address.\\n     * - `to` cannot be the zero address.\\n     * - `tokenId` token must exist and be owned by `from`.\\n     * - If the caller is not `from`, it must have been allowed to move this token by either {approve} or {setApprovalForAll}.\\n     * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function safeTransferFrom(address from, address to, uint256 tokenId) external;\\n\\n    /**\\n     * @dev Transfers `tokenId` token from `from` to `to`.\\n     *\\n     * WARNING: Note that the caller is responsible to confirm that the recipient is capable of receiving ERC721\\n     * or else they may be permanently lost. Usage of {safeTransferFrom} prevents loss, though the caller must\\n     * understand this adds an external call which potentially creates a reentrancy vulnerability.\\n     *\\n     * Requirements:\\n     *\\n     * - `from` cannot be the zero address.\\n     * - `to` cannot be the zero address.\\n     * - `tokenId` token must be owned by `from`.\\n     * - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(address from, address to, uint256 tokenId) external;\\n\\n    /**\\n     * @dev Gives permission to `to` to transfer `tokenId` token to another account.\\n     * The approval is cleared when the token is transferred.\\n     *\\n     * Only a single account can be approved at a time, so approving the zero address clears previous approvals.\\n     *\\n     * Requirements:\\n     *\\n     * - The caller must own the token or be an approved operator.\\n     * - `tokenId` must exist.\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address to, uint256 tokenId) external;\\n\\n    /**\\n     * @dev Approve or remove `operator` as an operator for the caller.\\n     * Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller.\\n     *\\n     * Requirements:\\n     *\\n     * - The `operator` cannot be the caller.\\n     *\\n     * Emits an {ApprovalForAll} event.\\n     */\\n    function setApprovalForAll(address operator, bool approved) external;\\n\\n    /**\\n     * @dev Returns the account approved for `tokenId` token.\\n     *\\n     * Requirements:\\n     *\\n     * - `tokenId` must exist.\\n     */\\n    function getApproved(uint256 tokenId) external view returns (address operator);\\n\\n    /**\\n     * @dev Returns if the `operator` is allowed to manage all of the assets of `owner`.\\n     *\\n     * See {setApprovalForAll}\\n     */\\n    function isApprovedForAll(address owner, address operator) external view returns (bool);\\n}\\n\",\"keccak256\":\"0x5bce51e11f7d194b79ea59fe00c9e8de9fa2c5530124960f29a24d4c740a3266\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts v4.4.1 (utils/introspection/IERC165.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Interface of the ERC165 standard, as defined in the\\n * https://eips.ethereum.org/EIPS/eip-165[EIP].\\n *\\n * Implementers can declare support of contract interfaces, which can then be\\n * queried by others ({ERC165Checker}).\\n *\\n * For an implementation, see {ERC165}.\\n */\\ninterface IERC165 {\\n    /**\\n     * @dev Returns true if this contract implements the interface defined by\\n     * `interfaceId`. See the corresponding\\n     * https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section]\\n     * to learn more about how these ids are created.\\n     *\\n     * This function call must use less than 30 000 gas.\\n     */\\n    function supportsInterface(bytes4 interfaceId) external view returns (bool);\\n}\\n\",\"keccak256\":\"0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1\",\"license\":\"MIT\"},\"contracts/HafizMarketplace.sol\":{\"content\":\"// SPDX-License-Identifier: MIT License\\npragma solidity ^0.8.17;\\n\\n\\nimport \\\"@openzeppelin/contracts/token/ERC721/IERC721.sol\\\";\\n\\n/**\\n * @title HafizMarketplace\\n * HafizMarketplace - a contract for user to hir certified tutors \\\" Shikh\\\". to teach them quran\\n * Fees: 3% fees are collected from the tutor for each transaction and dipoisted to the DAO contract to be used  for paying for perserving/ retreiving the recordings of the tutors associated with their NFTs certificates.\\n * students- tutor matching: \\\" off-chain\\\"\\n    * student can post a request to hire a tutor and any tutor can apply ad negotiate the price with the student. if the student accepts the offer,  the studnet send on-chain offer to the tutor and the tutor can accept or reject the offer.\\n    * the student can search for a tutor by his/her NFT certificate number and then send a request to the tutor to teach him/her. The tutor can accept or reject the request.\\n * offer \\\" on-chain\\\": the tutor can offer a price for his/her service and the student can accept it or offer a new price. the contract will check to make sure the tutor is eligible to teach the student based on the tutor's NFT certificate details.\\n * payment: the student can pay the tutor through time-based escrow contract. the tutor can withdraw the payment after the student confirms the tutor has taught him/her.\\n \\n */\\ncontract HafizMarketplace {\\n    address public daoContract;\\n    IERC721 public nftContract;\\n    uint256 public feePercentage;\\n    uint256 public totalOffers;\\n\\n    enum OfferState {\\n        Pending,\\n        Accepted,\\n        Rejected,\\n        Canceled,\\n        Fulfiled\\n    }\\n    // offer id to offer details\\n    mapping(uint256 => Offer) public offers;\\n\\n    enum Recitations {\\n        Hafs_3an_Aasem,\\n        Warash_3an_Nafi3,\\n        Qalun_3an_Nafi3,\\n        Aldawriu_3an_Abi_Amr,\\n        Abi_alharith_3an_Alkisaaiy,\\n        Aldawri_3an_Alkisaaiy,\\n        Shoo3ba_3an_Aasem,\\n        Qunbul_3an_Abn_Katheer,\\n        Albizi_3an_Abn_Katheer,\\n        Alsuwsi_3an_Abi_Amr\\n    }\\n    struct Offer {\\n        address tutor;\\n        address student;\\n        uint256 tokenId;\\n        uint256 price;\\n        uint256 gracePeriod;\\n        uint256 offerTime;\\n        Recitations qiraa;\\n        OfferState status;\\n        string data;\\n    }\\n\\n    constructor(\\n        address _daoContract,\\n        address _nftContract,\\n        uint256 _feePercentage\\n    ) {\\n        daoContract = _daoContract;\\n        nftContract = IERC721(_nftContract);\\n        feePercentage = _feePercentage;\\n    }\\n\\n    // offer per session\\n    function submitOffer(Offer memory offer_) external payable {\\n        /// TODO:: apply these checks\\n        // create offer id based on the offer details\\n        // check if the tutor is eligible to teach the student based on the tutor's NFT certificate details.\\n\\n        /// TODO : add more checks\\n        // check if the student has sent money to pay the tutor\\n\\n        if (offer_.price == msg.value) {\\n            revert();\\n        }\\n        ++totalOffers;\\n        offers[totalOffers] = offer_;\\n    }\\n\\n    function acceptOffer(uint256 offerId) external {\\n        Offer storage offer_ = offers[offerId];\\n        // tutor can accept the offer\\n        if (offer_.tutor != msg.sender) {\\n            revert();\\n        }\\n        if (offer_.status != OfferState.Pending) {\\n            revert();\\n        }\\n        // expire the offer if the tutor does not accept it within the grace period\\n        if(offer_.offerTime + offer_.gracePeriod < block.timestamp) {\\n            revert();\\n        }\\n\\n        offer_.status = OfferState.Accepted;\\n    }\\n\\n    function cancelOffer(uint256 offerId ) external {\\n                Offer storage offer_ = offers[offerId];\\n\\n        if (offer_.tutor != msg.sender || offer_.student != msg.sender) {\\n            revert();\\n        }\\n\\n        if (offer_.status == OfferState.Pending) {\\n            revert();\\n        }\\n        // Student can cancel the offer only within the grace period\\n        if (\\n            offer_.status == OfferState.Accepted &&\\n            offer_.offerTime + offer_.gracePeriod < block.timestamp &&\\n            offer_.student == msg.sender\\n        ) {\\n            revert();\\n        }\\n\\n        offer_.status = OfferState.Canceled;\\n        // refund the student\\n        payable(offer_.student).transfer(offer_.price);\\n    }\\n\\n    function rejectOffer(uint256 offerId ) external {\\n                Offer storage offer_ = offers[offerId];\\n        if (offer_.tutor != msg.sender) {\\n            revert();\\n        }\\n        if (offer_.status != OfferState.Pending) {\\n            revert();\\n        }\\n        offer_.status = OfferState.Rejected;\\n        payable(offer_.student).transfer(offer_.price);\\n    }\\n\\n    // tutor fullfill the offer and get paid. Fee percentage is deducted and transfered to DAO\\n    function fullfillOffer(uint256 offerId ) external {\\n                Offer storage offer_ = offers[offerId];\\n        if (offer_.tutor != msg.sender) {\\n            revert();\\n        }\\n        if (offer_.status != OfferState.Accepted) {\\n            revert();\\n        }\\n        if (offer_.offerTime + offer_.gracePeriod > block.timestamp) {\\n            revert();\\n        }\\n        offer_.status = OfferState.Fulfiled;\\n        uint256 fees = (offer_.price * feePercentage) / 100;\\n        // transfer the money to the tutor\\n        payable(offer_.tutor).transfer(offer_.price - fees);\\n        // transfer the fee to the DAO\\n        payable(daoContract).transfer(fees);\\n    }\\n}\\n\",\"keccak256\":\"0xf4884d5ee51b37cbd6cc8cb0a343f719e46bdccfbd1ef209743452cca1cbb18f\",\"license\":\"MIT License\"}},\"version\":1}",
+  "bytecode": "0x60806040523480156200001157600080fd5b5060405162000f9438038062000f948339810160408190526200003491620000bb565b600080546001600160a01b039485166001600160a01b031991821617909155600180549390941692169190911790915560025562000113565b60006001600160a01b0382165b92915050565b6200008b816200006d565b81146200009757600080fd5b50565b80516200007a8162000080565b806200008b565b80516200007a81620000a7565b600080600060608486031215620000d557620000d5600080fd5b6000620000e386866200009a565b9350506020620000f6868287016200009a565b92505060406200010986828701620000ae565b9150509250925092565b610e7180620001236000396000f3fe6080604052600436106100b15760003560e01c8063a9fd8ed111610069578063d56d229d1161004e578063d56d229d146101af578063e6e25366146101dc578063ef706adf146101fc57600080fd5b8063a9fd8ed114610179578063c815729d1461018f57600080fd5b806388b10c751161009a57806388b10c75146101015780638a72ea6a14610121578063a001ecdd1461015657600080fd5b80634a7ffcbc146100b657806361f30b21146100ec575b600080fd5b3480156100c257600080fd5b506000546100d6906001600160a01b031681565b6040516100e39190610778565b60405180910390f35b6100ff6100fa3660046109e1565b61021c565b005b34801561010d57600080fd5b506100ff61011c366004610a1c565b610339565b34801561012d57600080fd5b5061014161013c366004610a1c565b6103e5565b6040516100e399989796959493929190610b0b565b34801561016257600080fd5b5061016c60025481565b6040516100e39190610b97565b34801561018557600080fd5b5061016c60035481565b34801561019b57600080fd5b506100ff6101aa366004610a1c565b6104ce565b3480156101bb57600080fd5b506001546101cf906001600160a01b031681565b6040516100e39190610be7565b3480156101e857600080fd5b506100ff6101f7366004610a1c565b61054f565b34801561020857600080fd5b506100ff610217366004610a1c565b610675565b3481606001510361022c57600080fd5b60036000815461023b90610c0b565b9091555060038054600090815260046020818152604092839020855181546001600160a01b039182167fffffffffffffffffffffffff00000000000000000000000000000000000000009182161783559287015160018084018054929093169190941617905592850151600284015560608501519383019390935560808401519082015560a0830151600582015560c0830151600682018054859460ff19909116908360098111156102ef576102ef610a43565b021790555060e082015160068201805461ff00191661010083600481111561031957610319610a43565b021790555061010082015160078201906103339082610d08565b50505050565b600081815260046020526040902080546001600160a01b0316331461035d57600080fd5b60006006820154610100900460ff16600481111561037d5761037d610a43565b1461038757600080fd5b6006810180546002919061ff001916610100835b0217905550600181015460038201546040516001600160a01b039092169181156108fc0291906000818181858888f193505050501580156103e0573d6000803e3d6000fd5b505050565b6004602081905260009182526040909120805460018201546002830154600384015494840154600585015460068601546007870180546001600160a01b0397881699969097169794969394929360ff808416946101009094041692919061044b90610c3b565b80601f016020809104026020016040519081016040528092919081815260200182805461047790610c3b565b80156104c45780601f10610499576101008083540402835291602001916104c4565b820191906000526020600020905b8154815290600101906020018083116104a757829003601f168201915b5050505050905089565b600081815260046020526040902080546001600160a01b031633146104f257600080fd5b60006006820154610100900460ff16600481111561051257610512610a43565b1461051c57600080fd5b42816004015482600501546105319190610dcc565b101561053c57600080fd5b600601805461ff00191661010017905550565b600081815260046020526040902080546001600160a01b0316331461057357600080fd5b60016006820154610100900460ff16600481111561059357610593610a43565b1461059d57600080fd5b42816004015482600501546105b29190610dcc565b11156105bd57600080fd5b60068101805461ff00191661040017905560025460038201546000916064916105e69190610ddf565b6105f09190610e14565b825460038401549192506001600160a01b0316906108fc90610613908490610e28565b6040518115909202916000818181858888f1935050505015801561063b573d6000803e3d6000fd5b50600080546040516001600160a01b039091169183156108fc02918491818181858888f19350505050158015610333573d6000803e3d6000fd5b600081815260046020526040902080546001600160a01b0316331415806106a9575060018101546001600160a01b03163314155b156106b357600080fd5b60006006820154610100900460ff1660048111156106d3576106d3610a43565b036106dd57600080fd5b60016006820154610100900460ff1660048111156106fd576106fd610a43565b14801561071c5750428160040154826005015461071a9190610dcc565b105b8015610734575060018101546001600160a01b031633145b1561073e57600080fd5b6006810180546003919061ff0019166101008361039b565b60006001600160a01b0382165b92915050565b61077281610756565b82525050565b602081016107638284610769565b634e487b7160e01b600052604160045260246000fd5b601f19601f830116810181811067ffffffffffffffff821117156107c2576107c2610786565b6040525050565b60006107d460405190565b90506107e0828261079c565b919050565b6107ee81610756565b81146107f957600080fd5b50565b8035610763816107e5565b806107ee565b803561076381610807565b600a81106107f957600080fd5b803561076381610818565b600581106107f957600080fd5b803561076381610830565b600067ffffffffffffffff82111561086257610862610786565b601f19601f83011660200192915050565b82818337506000910152565b600061089261088d84610848565b6107c9565b9050828152602081018484840111156108ad576108ad600080fd5b6108b8848285610873565b509392505050565b600082601f8301126108d4576108d4600080fd5b81356108e484826020860161087f565b949350505050565b6000610120828403121561090257610902600080fd5b61090d6101206107c9565b9050600061091b84846107fc565b825250602061092c848483016107fc565b60208301525060406109408482850161080d565b60408301525060606109548482850161080d565b60608301525060806109688482850161080d565b60808301525060a061097c8482850161080d565b60a08301525060c061099084828501610825565b60c08301525060e06109a48482850161083d565b60e08301525061010082013567ffffffffffffffff8111156109c8576109c8600080fd5b6109d4848285016108c0565b6101008301525092915050565b6000602082840312156109f6576109f6600080fd5b813567ffffffffffffffff811115610a1057610a10600080fd5b6108e4848285016108ec565b600060208284031215610a3157610a31600080fd5b60006108e4848461080d565b80610772565b634e487b7160e01b600052602160045260246000fd5b600a81106107f9576107f9610a43565b806107e081610a59565b600061076382610a69565b61077281610a73565b600581106107f9576107f9610a43565b806107e081610a87565b600061076382610a97565b61077281610aa1565b60005b83811015610ad0578181015183820152602001610ab8565b50506000910152565b6000610ae3825190565b808452602084019350610afa818560208601610ab5565b601f01601f19169290920192915050565b6101208101610b1a828c610769565b610b27602083018b610769565b610b34604083018a610a3d565b610b416060830189610a3d565b610b4e6080830188610a3d565b610b5b60a0830187610a3d565b610b6860c0830186610a7e565b610b7560e0830185610aac565b818103610100830152610b888184610ad9565b9b9a5050505050505050505050565b602081016107638284610a3d565b60006107636001600160a01b038316610bbc565b90565b6001600160a01b031690565b600061076382610ba5565b600061076382610bc8565b61077281610bd3565b602081016107638284610bde565b634e487b7160e01b600052601160045260246000fd5b60006000198203610c1e57610c1e610bf5565b5060010190565b634e487b7160e01b600052602260045260246000fd5b600281046001821680610c4f57607f821691505b602082108103610c6157610c61610c25565b50919050565b6000610763610bb98381565b610c7c83610c67565b81546008840282811b60001990911b908116901990911617825550505050565b60006103e0818484610c73565b81811015610cc457610cbc600082610c9c565b600101610ca9565b5050565b601f8211156103e0576000818152602090206020601f85010481016020851015610cef5750805b610d016020601f860104830182610ca9565b5050505050565b815167ffffffffffffffff811115610d2257610d22610786565b610d2c8254610c3b565b610d37828285610cc8565b6020601f831160018114610d6b5760008415610d535750858201515b600019600886021c1981166002860217865550610dc4565b600085815260208120601f198616915b82811015610d9b5788850151825560209485019460019092019101610d7b565b86831015610db75784890151600019601f89166008021c191682555b6001600288020188555050505b505050505050565b8082018082111561076357610763610bf5565b818102808215838204851417610df757610df7610bf5565b5092915050565b634e487b7160e01b600052601260045260246000fd5b600082610e2357610e23610dfe565b500490565b8181038181111561076357610763610bf556fea264697066735822122022acd3fab789cecd8a93ed015d52d9d94a39487ecf4bd46b10fb4b8a8195a92264736f6c63430008110033",
+  "deployedBytecode": "0x6080604052600436106100b15760003560e01c8063a9fd8ed111610069578063d56d229d1161004e578063d56d229d146101af578063e6e25366146101dc578063ef706adf146101fc57600080fd5b8063a9fd8ed114610179578063c815729d1461018f57600080fd5b806388b10c751161009a57806388b10c75146101015780638a72ea6a14610121578063a001ecdd1461015657600080fd5b80634a7ffcbc146100b657806361f30b21146100ec575b600080fd5b3480156100c257600080fd5b506000546100d6906001600160a01b031681565b6040516100e39190610778565b60405180910390f35b6100ff6100fa3660046109e1565b61021c565b005b34801561010d57600080fd5b506100ff61011c366004610a1c565b610339565b34801561012d57600080fd5b5061014161013c366004610a1c565b6103e5565b6040516100e399989796959493929190610b0b565b34801561016257600080fd5b5061016c60025481565b6040516100e39190610b97565b34801561018557600080fd5b5061016c60035481565b34801561019b57600080fd5b506100ff6101aa366004610a1c565b6104ce565b3480156101bb57600080fd5b506001546101cf906001600160a01b031681565b6040516100e39190610be7565b3480156101e857600080fd5b506100ff6101f7366004610a1c565b61054f565b34801561020857600080fd5b506100ff610217366004610a1c565b610675565b3481606001510361022c57600080fd5b60036000815461023b90610c0b565b9091555060038054600090815260046020818152604092839020855181546001600160a01b039182167fffffffffffffffffffffffff00000000000000000000000000000000000000009182161783559287015160018084018054929093169190941617905592850151600284015560608501519383019390935560808401519082015560a0830151600582015560c0830151600682018054859460ff19909116908360098111156102ef576102ef610a43565b021790555060e082015160068201805461ff00191661010083600481111561031957610319610a43565b021790555061010082015160078201906103339082610d08565b50505050565b600081815260046020526040902080546001600160a01b0316331461035d57600080fd5b60006006820154610100900460ff16600481111561037d5761037d610a43565b1461038757600080fd5b6006810180546002919061ff001916610100835b0217905550600181015460038201546040516001600160a01b039092169181156108fc0291906000818181858888f193505050501580156103e0573d6000803e3d6000fd5b505050565b6004602081905260009182526040909120805460018201546002830154600384015494840154600585015460068601546007870180546001600160a01b0397881699969097169794969394929360ff808416946101009094041692919061044b90610c3b565b80601f016020809104026020016040519081016040528092919081815260200182805461047790610c3b565b80156104c45780601f10610499576101008083540402835291602001916104c4565b820191906000526020600020905b8154815290600101906020018083116104a757829003601f168201915b5050505050905089565b600081815260046020526040902080546001600160a01b031633146104f257600080fd5b60006006820154610100900460ff16600481111561051257610512610a43565b1461051c57600080fd5b42816004015482600501546105319190610dcc565b101561053c57600080fd5b600601805461ff00191661010017905550565b600081815260046020526040902080546001600160a01b0316331461057357600080fd5b60016006820154610100900460ff16600481111561059357610593610a43565b1461059d57600080fd5b42816004015482600501546105b29190610dcc565b11156105bd57600080fd5b60068101805461ff00191661040017905560025460038201546000916064916105e69190610ddf565b6105f09190610e14565b825460038401549192506001600160a01b0316906108fc90610613908490610e28565b6040518115909202916000818181858888f1935050505015801561063b573d6000803e3d6000fd5b50600080546040516001600160a01b039091169183156108fc02918491818181858888f19350505050158015610333573d6000803e3d6000fd5b600081815260046020526040902080546001600160a01b0316331415806106a9575060018101546001600160a01b03163314155b156106b357600080fd5b60006006820154610100900460ff1660048111156106d3576106d3610a43565b036106dd57600080fd5b60016006820154610100900460ff1660048111156106fd576106fd610a43565b14801561071c5750428160040154826005015461071a9190610dcc565b105b8015610734575060018101546001600160a01b031633145b1561073e57600080fd5b6006810180546003919061ff0019166101008361039b565b60006001600160a01b0382165b92915050565b61077281610756565b82525050565b602081016107638284610769565b634e487b7160e01b600052604160045260246000fd5b601f19601f830116810181811067ffffffffffffffff821117156107c2576107c2610786565b6040525050565b60006107d460405190565b90506107e0828261079c565b919050565b6107ee81610756565b81146107f957600080fd5b50565b8035610763816107e5565b806107ee565b803561076381610807565b600a81106107f957600080fd5b803561076381610818565b600581106107f957600080fd5b803561076381610830565b600067ffffffffffffffff82111561086257610862610786565b601f19601f83011660200192915050565b82818337506000910152565b600061089261088d84610848565b6107c9565b9050828152602081018484840111156108ad576108ad600080fd5b6108b8848285610873565b509392505050565b600082601f8301126108d4576108d4600080fd5b81356108e484826020860161087f565b949350505050565b6000610120828403121561090257610902600080fd5b61090d6101206107c9565b9050600061091b84846107fc565b825250602061092c848483016107fc565b60208301525060406109408482850161080d565b60408301525060606109548482850161080d565b60608301525060806109688482850161080d565b60808301525060a061097c8482850161080d565b60a08301525060c061099084828501610825565b60c08301525060e06109a48482850161083d565b60e08301525061010082013567ffffffffffffffff8111156109c8576109c8600080fd5b6109d4848285016108c0565b6101008301525092915050565b6000602082840312156109f6576109f6600080fd5b813567ffffffffffffffff811115610a1057610a10600080fd5b6108e4848285016108ec565b600060208284031215610a3157610a31600080fd5b60006108e4848461080d565b80610772565b634e487b7160e01b600052602160045260246000fd5b600a81106107f9576107f9610a43565b806107e081610a59565b600061076382610a69565b61077281610a73565b600581106107f9576107f9610a43565b806107e081610a87565b600061076382610a97565b61077281610aa1565b60005b83811015610ad0578181015183820152602001610ab8565b50506000910152565b6000610ae3825190565b808452602084019350610afa818560208601610ab5565b601f01601f19169290920192915050565b6101208101610b1a828c610769565b610b27602083018b610769565b610b34604083018a610a3d565b610b416060830189610a3d565b610b4e6080830188610a3d565b610b5b60a0830187610a3d565b610b6860c0830186610a7e565b610b7560e0830185610aac565b818103610100830152610b888184610ad9565b9b9a5050505050505050505050565b602081016107638284610a3d565b60006107636001600160a01b038316610bbc565b90565b6001600160a01b031690565b600061076382610ba5565b600061076382610bc8565b61077281610bd3565b602081016107638284610bde565b634e487b7160e01b600052601160045260246000fd5b60006000198203610c1e57610c1e610bf5565b5060010190565b634e487b7160e01b600052602260045260246000fd5b600281046001821680610c4f57607f821691505b602082108103610c6157610c61610c25565b50919050565b6000610763610bb98381565b610c7c83610c67565b81546008840282811b60001990911b908116901990911617825550505050565b60006103e0818484610c73565b81811015610cc457610cbc600082610c9c565b600101610ca9565b5050565b601f8211156103e0576000818152602090206020601f85010481016020851015610cef5750805b610d016020601f860104830182610ca9565b5050505050565b815167ffffffffffffffff811115610d2257610d22610786565b610d2c8254610c3b565b610d37828285610cc8565b6020601f831160018114610d6b5760008415610d535750858201515b600019600886021c1981166002860217865550610dc4565b600085815260208120601f198616915b82811015610d9b5788850151825560209485019460019092019101610d7b565b86831015610db75784890151600019601f89166008021c191682555b6001600288020188555050505b505050505050565b8082018082111561076357610763610bf5565b818102808215838204851417610df757610df7610bf5565b5092915050565b634e487b7160e01b600052601260045260246000fd5b600082610e2357610e23610dfe565b500490565b8181038181111561076357610763610bf556fea264697066735822122022acd3fab789cecd8a93ed015d52d9d94a39487ecf4bd46b10fb4b8a8195a92264736f6c63430008110033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "title": "HafizMarketplace HafizMarketplace - a contract for user to hir certified tutors \" Shikh\". to teach them quran Fees: 3% fees are collected from the tutor for each transaction and dipoisted to the DAO contract to be used  for paying for perserving/ retreiving the recordings of the tutors associated with their NFTs certificates. students- tutor matching: \" off-chain\" student can post a request to hire a tutor and any tutor can apply ad negotiate the price with the student. if the student accepts the offer,  the studnet send on-chain offer to the tutor and the tutor can accept or reject the offer. the student can search for a tutor by his/her NFT certificate number and then send a request to the tutor to teach him/her. The tutor can accept or reject the request. offer \" on-chain\": the tutor can offer a price for his/her service and the student can accept it or offer a new price. the contract will check to make sure the tutor is eligible to teach the student based on the tutor's NFT certificate details. payment: the student can pay the tutor through time-based escrow contract. the tutor can withdraw the payment after the student confirms the tutor has taught him/her.",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 10238,
+        "contract": "contracts/HafizMarketplace.sol:HafizMarketplace",
+        "label": "daoContract",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 10241,
+        "contract": "contracts/HafizMarketplace.sol:HafizMarketplace",
+        "label": "nftContract",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_contract(IERC721)1576"
+      },
+      {
+        "astId": 10243,
+        "contract": "contracts/HafizMarketplace.sol:HafizMarketplace",
+        "label": "feePercentage",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 10245,
+        "contract": "contracts/HafizMarketplace.sol:HafizMarketplace",
+        "label": "totalOffers",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 10256,
+        "contract": "contracts/HafizMarketplace.sol:HafizMarketplace",
+        "label": "offers",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_mapping(t_uint256,t_struct(Offer)10288_storage)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_contract(IERC721)1576": {
+        "encoding": "inplace",
+        "label": "contract IERC721",
+        "numberOfBytes": "20"
+      },
+      "t_enum(OfferState)10251": {
+        "encoding": "inplace",
+        "label": "enum HafizMarketplace.OfferState",
+        "numberOfBytes": "1"
+      },
+      "t_enum(Recitations)10267": {
+        "encoding": "inplace",
+        "label": "enum HafizMarketplace.Recitations",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_uint256,t_struct(Offer)10288_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct HafizMarketplace.Offer)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Offer)10288_storage"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(Offer)10288_storage": {
+        "encoding": "inplace",
+        "label": "struct HafizMarketplace.Offer",
+        "members": [
+          {
+            "astId": 10269,
+            "contract": "contracts/HafizMarketplace.sol:HafizMarketplace",
+            "label": "tutor",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 10271,
+            "contract": "contracts/HafizMarketplace.sol:HafizMarketplace",
+            "label": "student",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_address"
+          },
+          {
+            "astId": 10273,
+            "contract": "contracts/HafizMarketplace.sol:HafizMarketplace",
+            "label": "tokenId",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 10275,
+            "contract": "contracts/HafizMarketplace.sol:HafizMarketplace",
+            "label": "price",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 10277,
+            "contract": "contracts/HafizMarketplace.sol:HafizMarketplace",
+            "label": "gracePeriod",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 10279,
+            "contract": "contracts/HafizMarketplace.sol:HafizMarketplace",
+            "label": "offerTime",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 10282,
+            "contract": "contracts/HafizMarketplace.sol:HafizMarketplace",
+            "label": "qiraa",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_enum(Recitations)10267"
+          },
+          {
+            "astId": 10285,
+            "contract": "contracts/HafizMarketplace.sol:HafizMarketplace",
+            "label": "status",
+            "offset": 1,
+            "slot": "6",
+            "type": "t_enum(OfferState)10251"
+          },
+          {
+            "astId": 10287,
+            "contract": "contracts/HafizMarketplace.sol:HafizMarketplace",
+            "label": "data",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_string_storage"
+          }
+        ],
+        "numberOfBytes": "256"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
