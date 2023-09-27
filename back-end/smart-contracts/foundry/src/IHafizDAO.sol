@@ -93,12 +93,12 @@ interface IHafizDAO  is IEjaza{
 
     // function addDealId(bytes32 proposalId, uint64 dealId) external;
    
-    function getDealIds(bytes32 proposalId) external view returns (uint64[] memory) ;
+    // function getDealIds(bytes32 proposalId) external view returns (uint64[] memory) ;
 
-    function getProviders(bytes32 proposalId) external view returns (uint64[] memory) ;
+    // function getProviders(bytes32 proposalId) external view returns (uint64[] memory) ;
 
-    function getActiveProviders(bytes32 proposalId) external view returns (uint64[] memory);
-     function getDataProof(bytes32 proposalId) external view  returns (string memory) ;
+    // function getActiveProviders(bytes32 proposalId) external view returns (uint64[] memory);
+    //  function getDataProof(bytes32 proposalId) external view  returns (string memory) ;
      // errors go here
          error NotMember();
         error NotValidCID();
