@@ -1,0 +1,11 @@
+Compiled 22 Solidity files successfully
+Deploying the contracts with the account: 0x8906EA0bc4b4e62314417eCdcbe45757112720E8
+Account balance: 93431752628767702210
+Wallet Ethereum Address: 0x8906EA0bc4b4e62314417eCdcbe45757112720E8
+Deploying Cid...
+Cid deployed to: 0xe7AfC8c31874cb5B0eaE649d58bf1fD693A0F682
+Deploying Proof...
+Proof deployed to: 0xDDbd49e16edCc87C670E64c28a2E566C384F89cC
+Deploying DealStatus...
+DealStatus deployed to: 0x3FDb159157C6CB8a8955CDcC2CeADFF157BA6F56
+Done in 170.05s.
