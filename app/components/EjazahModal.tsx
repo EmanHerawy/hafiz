@@ -105,14 +105,12 @@ export default function EjazahModal({ open, data, onClose }) {
             <Button
               variant="outlined"
               size="large"
-              href={`https://goerli-optimism.etherscan.io/tx/${data?.hash}`}
+              href={`https://calibration.filscan.io/tx/${data?.hash}`}
               target="_blank"
             >
               Etherscan
             </Button>
-            <Button variant="outlined" size="large" href={`/user`}>
-              View
-            </Button>
+         
           </Box>
         </>
       );

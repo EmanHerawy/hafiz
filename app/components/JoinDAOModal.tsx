@@ -116,14 +116,12 @@ const {data : isDAOMember} = useContractRead({
             <Button
               variant="outlined"
               size="large"
-              href={`https://goerli-optimism.etherscan.io/tx/${data?.hash}`}
+              href={`https://calibration.filscan.io/tx/${data?.hash}`}
               target="_blank"
             >
               Etherscan
             </Button>
-            <Button variant="outlined" size="large" href={`/user`}>
-              View
-            </Button>
+       
           </Box>
         </>
       );
@@ -144,17 +142,11 @@ const {data : isDAOMember} = useContractRead({
         aria-labelledby="child-modal-title"
         aria-describedby="child-modal-description"
       > 
-       {isConnected&& !isDAOMember?( <Box sx={backdropStyle}>
+       {isConnected?( <Box sx={backdropStyle}>
           <Card>
       
             <CardContent>
-             {ejazahBalance?.toNumber()>0?(<Typography variant="body2" color="text.secondary">
-                Mashaa Allah, You are Ejazah holder. You are most welcome to join Hafiz DAO
-              </Typography>):(<Typography variant="body2" color="text.secondary">
-                Sorry you don not have any Ejazah, The DAO is only for Ejazah holder
-              </Typography>)} 
-              
-              
+                       
             </CardContent>
 
             <CardActions sx={{ justifyContent: "flex-end" }}>

@@ -2,8 +2,7 @@
 
 import { Box, Typography } from "@mui/material";
 
-import PDFViewer from "@/components/PDFViewer";
-
+ 
 import "./style.css";
 
 export default function Home() {
@@ -21,8 +20,7 @@ export default function Home() {
         >
           Comic
         </Typography>
-        <PDFViewer url="https://ipfs.io/ipfs/QmdHt1ZkRdrkB8QoDKEL5tm5w4HThmHkaTrhUvS2va1uR7" />
-
+ 
         <Typography
           variant={"h2"}
           sx={{ mb: 10, mt: 10, fontFamily: "inherit", color: "var(--yellow)" }}

@@ -8,6 +8,18 @@ const links = [
       "Explore detailed information about the project, its mission, and vision.",
   },
   {
+    title: "DAO",
+    link: "/dao",
+    description:
+      "Explore the current DAO proposals and vote on the future of the project.",
+  },
+  {
+    title: "Marketplace",
+    link: "/marketplace",
+    description:
+      "Explore the available Shikhs, Hire your own, or Sell your services.",
+  },
+  {
     title: "Team",
     link: "/team",
     description:

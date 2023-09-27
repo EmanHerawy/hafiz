@@ -6,6 +6,8 @@ import {
   Modal,
   Typography,
   CardActions,
+  TextField,
+  Autocomplete,
   Button,
 } from "@mui/material";
 import { useState } from "react";
@@ -16,11 +18,7 @@ import {
   usePrepareContractWrite,
   useWaitForTransaction,
 } from "wagmi";
-import { Uploader } from "uploader"; // Installed by "react-uploader".
-import { UploadButton } from "react-uploader";
-
- import lighthouse from '@lighthouse-web3/sdk'
-import {EjazahDAO,EjazahNFT} from "../assets/data/contracts.json";
+  import {EjazahDAO,EjazahNFT, lighthouse} from "../assets/data/contracts.json";
  
 import ConnectWallet from "./ConnectWallet";
 import Loader from "./Loader";
@@ -41,7 +39,11 @@ type Address = `0x${string}`;
 
  
 export default function SubmitDAOProposalModal({ open, data, onClose }) {
-   const [offer, setOffer] = useState({});
+  const [cid, setCID] = useState("");
+  const [to, setTo] = useState("")
+  const [rewaya, setRewaya] = useState(0)
+  const [parentCertId, setParentCertId] = useState(0)
+
    const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const { address, isConnected } = useAccount();
 // const {data : ejazahBalance} = useContractRead({
@@ -67,7 +69,7 @@ const {data : isDAOMember} = useContractRead({
     address: EjazahDAO.address as Address,
     abi: EjazahDAO.abi,
     functionName: "propose",
-    args: [offer],
+    args: [cid, to, parentCertId,  rewaya],
    });
 
  
@@ -83,9 +85,32 @@ const {data : isDAOMember} = useContractRead({
       refetch().then(() => console.log("refetched"));
     },
   });
-
+/**    enum Recitations {
+        Hafs_3an_Aasem,
+        Warash_3an_Nafi3,
+        Qalun_3an_Nafi3,
+        Aldawriu_3an_Abi_Amr,
+        Abi_alharith_3an_Alkisaaiy,
+        Aldawri_3an_Alkisaaiy,
+        Shoo3ba_3an_Aasem,
+        Qunbul_3an_Abn_Katheer,
+        Albizi_3an_Abn_Katheer,
+        Alsuwsi_3an_Abi_Amr
+    } */
  
-
+const recitation = [
+  { label: 'Hafs 3an Aasem', id: 0 },
+  { label: 'Warash 3an Nafi3', id: 1 },
+  { label: 'Qalun_3an_Nafi3', id: 2 },
+  { label: 'Aldawriu 3an Abi Amr', id: 3},
+  { label: 'Abi alharith 3an Alkisaaiy', id: 4},
+  { label: 'Aldawri 3an Alkisaaiy', id: 5},
+  { label: 'Shoo3ba 3an Aasem', id: 6},
+  { label: 'Qunbul 3an Abn Katheer', id: 7},
+  { label: 'Albizi 3an Abn Katheer', id: 8 },
+    { label: 'Alsuwsi 3an Abi Amr', id: 9 }
+]
+ 
  
 
   const getErrors = () => {
@@ -107,31 +132,7 @@ const {data : isDAOMember} = useContractRead({
    action.write?.();
   };
   const uploadFile = async (file) => {
-   /** if (this.state.image_file !== null){
-
-            let formData = new FormData();
-            formData.append('customFile', this.state.image_file);
-            // the image field name should be similar to your api endpoint field name
-            // in my case here the field name is customFile
-
-            axios.post(
-                this.custom_file_upload_url,
-                formData,
-                {
-                    headers: {
-                        "Authorization": "YOUR_API_AUTHORIZATION_KEY_SHOULD_GOES_HERE_IF_HAVE",
-                        "Content-type": "multipart/form-data",
-                    },                    
-                }
-            )
-            .then(res => {
-                console.log(`Success` + res.data);
-            })
-            .catch(err => {
-                console.log(err);
-            })
-        } */
-     let formData = new FormData();
+       let formData = new FormData();
             formData.append('file', file);
  fetch("http://localhost:1337/api/uploadFile", {
       mode: 'no-cors',
@@ -139,7 +140,9 @@ const {data : isDAOMember} = useContractRead({
       body: formData
     }).then(function (res) {
       if (res.ok) {
-        alert("Perfect! ");
+        // set cid 
+        setCID(res.cid)
+
       } else if (res.status == 401) {
         alert("Oops! ");
       }
@@ -161,14 +164,12 @@ const {data : isDAOMember} = useContractRead({
             <Button
               variant="outlined"
               size="large"
-              href={`https://goerli-optimism.etherscan.io/tx/${data?.hash}`}
+              href={`https://calibration.filscan.io/tx/${data?.hash}`}
               target="_blank"
             >
               Etherscan
             </Button>
-            <Button variant="outlined" size="large" href={`/user`}>
-              View
-            </Button>
+        
           </Box>
         </>
       );
@@ -189,20 +190,35 @@ const {data : isDAOMember} = useContractRead({
         aria-labelledby="child-modal-title"
         aria-describedby="child-modal-description"
       > 
-       {isConnected&& !isDAOMember?( <Box sx={backdropStyle}>
+       {isConnected?( <Box sx={backdropStyle}>
          <Card>
-            <CardMedia
+            {/* <CardMedia
               component="img"
               height="400"
               src={`/imgs/${data.img}`}
               alt={data.title}
-            />
+            /> */}
             <CardContent>
-                  <input onChange={e=>uploadFile(e.target.files[0])} type="file" />
-              <Typography variant="body2" color="text.secondary">
-                {data.description}
-              </Typography>
-            </CardContent>
+              <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                 <input onChange={e => uploadFile(e.target.files[0])} type="file" />
+              <TextField fullWidth label="fullWidth" id="fullWidth" value={cid} label="CID"/>
+              </Box>
+              <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+              <TextField fullWidth label="fullWidth" id="fullWidth" value={to} label="To" onChange={e=>setTo(e.target.value)} />
+              </Box>
+              <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+              <TextField fullWidth label="fullWidth" id="fullWidth"  value={parentCertId} label="Your Ejazah id" onChange={e=>setParentCertId(e.target.value)}/>
+                <Autocomplete
+                  disablePortal
+                  id="combo-box-demo"
+                  options={recitation}
+                  sx={{ width: 300 }}
+                  onChange={e=>setRewaya(e.target.value)}
+  renderInput={(params) => <TextField {...params} label="Recitation"  />}
+/>
+              </Box>
+              
+                         </CardContent>
 
             <CardActions sx={{ justifyContent: "flex-end" }}>
               {isConnected ? (
@@ -211,15 +227,14 @@ const {data : isDAOMember} = useContractRead({
                   variant="contained"
                   size="large"
                 >
-                 Hire
+                 Send
                 </Button>
               ) : (
                 <ConnectWallet />
               )}
             </CardActions>
           </Card>
-        </Box>) : ( <Typography variant="body2" color="text.secondary">
-You are already a mamber              </Typography>)}
+        </Box>) : ( <ConnectWallet />)}
       </Modal>
 
       <Modal

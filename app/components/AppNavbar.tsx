@@ -121,6 +121,7 @@ const ResponsiveAppBar = () => {
             
           </NextLink>
           </Box>
+          
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             {isConnected &&  <NetworkSelector />}
             <ConnectWallet />

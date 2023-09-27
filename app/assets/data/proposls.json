@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Mohamed Ali",
+    "img": "Ejaza02.png",
+    "recoding": "Ejaza02.png",
+    "rewaya": "Hafs",
+    "hourRate":5,
+    "issueTime": "22/09/2023",
+    "issuedIjazah": 20,
+    "issuedBy":"Shikh Hassan"
+
+  
+  },
+  {
+    "name": "Eman Sayed",
+    "img": "Ejaza03.png",
+    "rewaya": "Warsh",
+    "hourRate":5,
+    "issueTime": "28/09/2023",
+    "issuedIjazah": 10,
+    "issuedBy":"Shikh Khalid"
+
+  
+  },
+  {
+    "name": "Somaiah Hassan",
+    "img": "Ejaza01.jpg",
+    "rewaya": "Hafs",
+    "hourRate":2,
+    "issueTime": "12/09/2023",
+    "issuedIjazah": 0,
+    "issuedBy":"Shikha Nisma"
+
+  
+  }
+  
+]
