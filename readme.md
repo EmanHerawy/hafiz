@@ -1,5 +1,6 @@
 # Hafiz : Preserving the holy Quran and it's recitation for the next generations.
 -------------------------
+![Alt text](./assets/image.png)
 ## Intro :
 This intro is for readers who are not familiar with Islamic civilization. 
 ### A chain of transmission (sanad)
@@ -10,6 +11,7 @@ In Islam, the Quran represents the divine speech of Allah (SWT), revealed to the
 #### What?
 An ijazahis a license authorizing its holder to transmit a certain text or subject, which is issued by someone already possessing such authority. It is particularly associated with transmission of Islamic religious knowledge. To guarantee its authenticity and faithful transmission, a system of certification known as "ijazah" has been firmly established from the earliest periods of Islamic history and civilization. You can think about Ejzah/Ijazah as deploma that is granted to Quran students who memorize the Quran perfectly and can recite the whole Quran by heart (without reading from the holy Quran book) without any mistake in front of an Ijazah certified Sheikh or Quran Teacher and uthorizes its holder to teach Quran Memorization (Hifz). Ijazah only can be awarded by an already certified Imam or scholar. it authorizes its holder to teach Quran Memorization (Hifz). 
 This process is called Sanad, Ijazah/Sanad played a critical role in transmitting Quran & Islamic knowledge across the ages. It’s one of the major factors that preserved Islamic knowledge from any manipulation or mistakes.
+![Alt text](./assets/image-1.png)
 
 ### About Hafiz 
  Hafiz is a platform for Quran students and teachers where they can :
