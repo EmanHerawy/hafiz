@@ -14,12 +14,25 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  const Greeter = await hre.ethers.getContractFactory("Greeter");
-  const greeter = await Greeter.deploy("Hello, Hardhat!");
+  const NFT = await hre.ethers.getContractFactory("HafizEjaza");
+  const nft = await NFT.attach("0x9aaD4719E6466835cb5B6c474450B20482DA672e")
 
-  await greeter.deployed();
-
-  console.log("Greeter deployed to:", greeter.address);
+  await nft.deployed();
+  // let tx = await nft.setDAO("0xd9f311186176cF51255E4591fBfA078a6F367C0E");
+  // console.log({tx});
+  let ejaza =  {
+     qiraa:0,
+        // The timestamp from the block when this is created.
+    issueTime: 1641894434,
+         parentCertId:0,
+        // recording cid
+         recodingURl:""
+}
+  let tos = ["0x8906EA0bc4b4e62314417eCdcbe45757112720E8"];
+  ejazat = [ejaza];
+  let tx = await nft.issueForLegacyEjaza(tos,ejazat)
+  console.log({tx});
+  console.log("Greeter deployed to:", nft.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
